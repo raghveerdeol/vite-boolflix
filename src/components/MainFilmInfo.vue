@@ -10,9 +10,6 @@ return {
 },
 methods: {
     urlFlag(language){
-        // if (language.value === en) {
-        //     return 'https://flagsapi.com/GB/flat/64.png'
-        // } else {
             return 'https://flagsapi.com/' + language.toUpperCase() + '/flat/24.png'
         // }
     }

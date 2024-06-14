@@ -2,15 +2,15 @@
 export default {
 data() {
 return {
-    film: '',
+    title: '',
 }
 }
 }
 </script>
 
 <template>
-    <input type="text" v-model="film">
-    <button @click="$emit('searched', film)">search</button>
+    <input type="text" v-model="title">
+    <button @click="$emit('searched', title)">search</button>
 </template>
 
 <style scoped>

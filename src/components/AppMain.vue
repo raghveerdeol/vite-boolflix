@@ -12,7 +12,8 @@ export default {
 data() {
 return {
     store,
-    apiFilmUrl: 'https://api.themoviedb.org/3/search/movie'
+    apiFilmUrl: 'https://api.themoviedb.org/3/search/movie',
+    apitvUrl: 'https://api.themoviedb.org/3/search/tv',
 }
 },
 methods: {
@@ -32,15 +33,29 @@ methods: {
         .finally(function () {
             // always executed
         });  
+    },getTvsSeries(url, seriesName){
+        axios.get(url,{
+            params: {
+                api_key: '83724394da4505a6dc047ce5485571d4',
+                query: seriesName,
+            }
+        })
+        .then(function(response){
+            store.seriesInfo = response.data.results;
+            console.log(response.data.results);
+        })
+        .catch(function (error) {
+        })
+        .finally(function () {
+            // always executed
+        });  
     },
-    movieName(film){
-        console.log(film)
-        this.getFilmInfo(this.apiFilmUrl, film)
+    movieName(title){
+        console.log(title)
+        this.getFilmInfo(this.apiFilmUrl, title)
+        this.getTvsSeries(this.apitvUrl, title)
     }
 },
-// created() {
-//     this.getFilmInfo(this.apiFilmUrl)
-// }
 }
 </script>
 
