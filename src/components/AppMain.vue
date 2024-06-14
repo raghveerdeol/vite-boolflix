@@ -51,6 +51,7 @@ methods: {
     </ul>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use '../styles/generle.scss' as *;
 
 </style>

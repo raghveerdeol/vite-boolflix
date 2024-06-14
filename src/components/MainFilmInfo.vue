@@ -35,8 +35,7 @@ props: {
                 Titolo Originale: {{ movieInfo.original_title }}
             </div>
             <div>
-                Lingua: {{ movieInfo.original_language }}
-                <span class="lang-icon lang-icon-en"></span>
+                Lingua: <span class="lang-icon" :class="`lang-icon-${movieInfo.original_language}`"></span>
             </div>
             <div>
                 Voto: {{ movieInfo.vote_average }}
@@ -44,6 +43,9 @@ props: {
         </li>
 </template>
 
-<style scoped>
-
+<style lang="scss" scoped>
+@use '../styles/partials/flags' as *;
+.lang-icon {
+            background-image: url(../../node_modules/@textabledev/langs-flags-list/lang-flags.png);
+}
 </style>
