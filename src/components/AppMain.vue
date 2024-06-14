@@ -3,11 +3,13 @@ import axios from 'axios';
 import { store } from '../store.js';
 import MainSearch from './MainSearch.vue';
 import MainFilmInfo from './MainFilmInfo.vue'
+import MainSeries from './MainSeries.vue'
 
 export default {
     components: {
         MainSearch,
         MainFilmInfo,
+        MainSeries,
     },
 data() {
 return {
@@ -63,6 +65,9 @@ methods: {
     <MainSearch @searched="movieName"/>
     <ul>
         <MainFilmInfo v-for="film in store.filmInfo" :movie-info="film"/>
+    </ul>
+    <ul>
+        <MainSeries v-for="series in store.seriesInfo" :tv-info="series" />
     </ul>
 </template>
 
