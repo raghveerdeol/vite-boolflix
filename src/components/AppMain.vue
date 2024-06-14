@@ -2,11 +2,12 @@
 import axios from 'axios';
 import { store } from '../store.js';
 import MainSearch from './MainSearch.vue';
-import { info } from 'sass';
+import MainFilmInfo from './MainFilmInfo.vue'
 
 export default {
     components: {
         MainSearch,
+        MainFilmInfo,
     },
 data() {
 return {
@@ -23,8 +24,8 @@ methods: {
             }
         })
         .then(function (response) {
+            store.filmInfo = response.data.results;
             console.log(response.data.results);
-            this.store.filmInfo = response.data.results;
         })
         .catch(function (error) {
         })
@@ -32,19 +33,22 @@ methods: {
             // always executed
         });  
     },
-    info(film){
+    movieName(film){
         console.log(film)
         this.getFilmInfo(this.apiFilmUrl, film)
     }
 },
-created() {
-    this.getFilmInfo(this.apiFilmUrl)
-}
+// created() {
+//     this.getFilmInfo(this.apiFilmUrl)
+// }
 }
 </script>
 
 <template>
-    <MainSearch @searched="info"/>
+    <MainSearch @searched="movieName"/>
+    <ul>
+        <MainFilmInfo v-for="film in store.filmInfo" :movie-info="film"/>
+    </ul>
 </template>
 
 <style scoped>
