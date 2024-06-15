@@ -16,6 +16,7 @@ props: {
 
 <template>
     <li>
+        <img :src="`https://image.tmdb.org/t/p/w342/${tvInfo.poster_path}`" alt="tv series poster">
             <div>
                 Titiolo: {{ tvInfo.name }}
             </div>

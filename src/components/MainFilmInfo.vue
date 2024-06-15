@@ -8,12 +8,6 @@ return {
         store,
 }
 },
-methods: {
-    urlFlag(language){
-            return 'https://flagsapi.com/' + language.toUpperCase() + '/flat/24.png'
-        // }
-    }
-},
 props: {
     movieInfo: {
         type: Object,
@@ -25,6 +19,7 @@ props: {
 
 <template>
         <li>
+            <img :src="`https://image.tmdb.org/t/p/w342/${movieInfo.poster_path}`" alt="movie poster">
             <div>
                 Titiolo: {{ movieInfo.title }}
             </div>

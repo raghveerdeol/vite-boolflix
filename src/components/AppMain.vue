@@ -35,7 +35,8 @@ methods: {
         .finally(function () {
             // always executed
         });  
-    },getTvsSeries(url, seriesName){
+    },
+    getTvsSeries(url, seriesName){
         axios.get(url,{
             params: {
                 api_key: '83724394da4505a6dc047ce5485571d4',
@@ -63,9 +64,11 @@ methods: {
 
 <template>
     <MainSearch @searched="movieName"/>
+    <h2>Films</h2>
     <ul>
         <MainFilmInfo v-for="film in store.filmInfo" :movie-info="film"/>
     </ul>
+    <h2>Tv Series</h2>
     <ul>
         <MainSeries v-for="series in store.seriesInfo" :tv-info="series" />
     </ul>
