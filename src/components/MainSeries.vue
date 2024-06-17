@@ -51,7 +51,6 @@ created(){
                         overview: {{ tvInfo.overview }}
                     </p>
                     <div>
-                        Voto: {{ tvInfo.vote_average }}
                         <ul class="stars">
                             <li v-for="(star, index) in stars" :key="index" id="app"  class="star-color">
                                     <font-awesome-icon icon="fa-solid fa-star" />
