@@ -51,6 +51,9 @@ created(){
                         <p>
                             Lingua: <span class="lang-icon" :class="`lang-icon-${movieInfo.original_language}`"></span>
                         </p>
+                        <p>
+                            overview: {{ movieInfo.overview }}
+                        </p>
                         <div>
                             <ul class="stars">
                                 <li v-for="(star, index) in stars" :key="index" id="app" class="star-color">
