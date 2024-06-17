@@ -35,43 +35,41 @@ created(){
 </script>
 
 <template>
-        <li>
-            <img :src="`https://image.tmdb.org/t/p/w342/${movieInfo.poster_path}`" alt="movie poster">
-            <div>
-                Titiolo: {{ movieInfo.title }}
-            </div>
-            <div>
-                Titolo Originale: {{ movieInfo.original_title }}
-            </div>
-            <div>
-                Lingua: <span class="lang-icon" :class="`lang-icon-${movieInfo.original_language}`"></span>
-            </div>
-            <div>
-                Voto: {{ movieInfo.vote_average }}
-                <ul>
-                    <li v-for="(star, index) in stars" :key="index">
-                        <div id="app">
-                            <!-- Add the style and icon you want using the String format -->
-                            <font-awesome-icon icon="fa-solid fa-star" />
+        <li class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img :src="`https://image.tmdb.org/t/p/w342/${movieInfo.poster_path}`" alt="movie poster">
+                </div>
+                <div class="flip-card-back">
+                    <div class="content">
+                        <p>
+                            Titiolo: {{ movieInfo.title }}
+                        </p>
+                        <p>
+                            Titolo Originale: {{ movieInfo.original_title }}
+                        </p>
+                        <p>
+                            Lingua: <span class="lang-icon" :class="`lang-icon-${movieInfo.original_language}`"></span>
+                        </p>
+                        <div>
+                            <ul class="stars">
+                                <li v-for="(star, index) in stars" :key="index" id="app" class="star-color">
+                                        <font-awesome-icon icon="fa-solid fa-star" />
+                                </li>
+                                <li v-for="(star, index) in emptyStars" :key="index" >
+                                        <font-awesome-icon icon="fa-solid fa-star" class="empty-star"/>
+                                </li>
+                            </ul>
                         </div>
-                    </li>
-                    <li v-for="(star, index) in emptyStars" :key="index">
-                        <div id="app">
-                            <!-- Add the style and icon you want using the String format -->
-                            <font-awesome-icon icon="fa-solid fa-star" class="empty-star"/>
-                        </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
         </li>
 </template>
 
 <style lang="scss" scoped>
 @use '../styles/partials/flags' as *;
-.lang-icon {
-            background-image: url(../../node_modules/@textabledev/langs-flags-list/lang-flags.png);
-}
-.empty-star{
-    color: grey;
-}
+@use '../styles/partials/mixins' as *;
+@use '../styles/partials/variables' as *;
+@use '../styles/partials/cardsStyle' as *;
 </style>

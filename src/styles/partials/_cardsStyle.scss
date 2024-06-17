@@ -1,0 +1,66 @@
+.lang-icon {
+    background-image: url(../../node_modules/@textabledev/langs-flags-list/lang-flags.png);
+}
+.empty-star{
+    color: grey;
+}
+.star-color{
+    color: orange;
+}
+.stars{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+img{
+    width: 100%;
+    object-fit: cover;
+}
+.flip-card {
+    background-color: transparent;
+    width: calc((100% / 5) - .3rem);
+    height: 342px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+.flip-card-back {
+    background-color: black;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+} 
+.content{
+    position: absolute;
+    line-height: 23px;
+    font-weight: 800;
+}
