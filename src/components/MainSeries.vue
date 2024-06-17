@@ -47,6 +47,9 @@ created(){
                     <p>
                         Lingua: <span class="lang-icon" :class="`lang-icon-${tvInfo.original_language}`"></span>
                     </p>
+                    <p>
+                        overview: {{ tvInfo.overview }}
+                    </p>
                     <div>
                         Voto: {{ tvInfo.vote_average }}
                         <ul class="stars">

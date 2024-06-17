@@ -41,5 +41,11 @@ ul{
     @include flex-between;
     flex-wrap: wrap;
 }
-
+h2{
+    color: red;
+    padding: 1rem 0;
+    font-weight: 900;
+    text-align: center;
+    font-size: 2rem;
+}
 </style>

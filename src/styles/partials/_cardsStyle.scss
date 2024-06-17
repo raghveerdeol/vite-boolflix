@@ -18,12 +18,13 @@ img{
 }
 .flip-card {
     background-color: transparent;
-    width: calc((100% / 5) - .3rem);
+    width: calc((100% / 5) - .4rem);
     height: 342px;
     border: 1px solid #f1f1f1;
     perspective: 1000px;
     overflow: hidden;
     font-size: .6rem;
+    margin-bottom: 2rem;
 }
 
 .flip-card-inner {
