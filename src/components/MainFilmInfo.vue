@@ -17,7 +17,7 @@ props: {
 },
 methods: {
     getStars(){
-        const starNumber = (Math.round(parseInt(this.movieInfo.vote_average / 2, 10)));
+        const starNumber = Math.round(parseInt(this.movieInfo.vote_average / 2, 10));
         for (let index = 0; index < starNumber; index++) {
             this.stars.push(index)
         }
@@ -46,7 +46,10 @@ created(){
                 Voto: {{ movieInfo.vote_average }}
                 <ul>
                     <li v-for="(star, index) in stars" :key="index">
-                        star
+                        <div id="app">
+                            <!-- Add the style and icon you want using the String format -->
+                            <font-awesome-icon icon="fa-solid fa-star" />
+                        </div>
                     </li>
                 </ul>
             </div>
