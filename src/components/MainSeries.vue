@@ -14,7 +14,7 @@ props: {
 },
 methods: {
     getStars(){
-        const starNumber = Math.round(parseInt(this.tvInfo.vote_average / 2, 10));
+        const starNumber = parseInt(Math.ceil(this.tvInfo.vote_average) / 2, 10);
         for (let index = 0; index < starNumber; index++) {
             this.stars.push(index)
         };
