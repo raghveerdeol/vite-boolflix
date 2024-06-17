@@ -2,9 +2,11 @@
 import axios from 'axios';
 import { store } from '../store.js';
 import MainSearch from './MainSearch.vue';
+import HeaderLogo from './HeaderLogo.vue';
 
 export default {
     components: {
+        HeaderLogo,
         MainSearch,
     },
 data() {
@@ -59,9 +61,23 @@ methods: {
 </script>
 
 <template>
-    <MainSearch @searched="movieName"/>
+    <header>
+        <div class="container">
+            <HeaderLogo/>
+            <MainSearch @searched="movieName"/>
+        </div>
+    </header>
 </template>
 
 <style lang="scss" scoped>
-
+@use '../styles/partials/mixins' as*;
+header{
+    background-color: black;
+}
+.container{
+    @include flex-between;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+}
 </style>

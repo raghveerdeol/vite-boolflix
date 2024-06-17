@@ -29,6 +29,6 @@ return {
 </template>
 
 <style lang="scss" scoped>
-@use '../styles/generle.scss' as *;
+
 
 </style>
