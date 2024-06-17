@@ -3,6 +3,7 @@ export default {
 data() {
 return {
     stars: [],
+    emptyStars: [],
 }
 },
 props: {
@@ -16,7 +17,10 @@ methods: {
         const starNumber = Math.round(parseInt(this.tvInfo.vote_average / 2, 10));
         for (let index = 0; index < starNumber; index++) {
             this.stars.push(index)
-        }
+        };
+        for (let index = starNumber; index < 5; index++) {
+            this.emptyStars.push(index)
+        };
         console.log(this.stars)
     }
 },
@@ -47,6 +51,12 @@ created(){
                             <font-awesome-icon icon="fa-solid fa-star" />
                         </div>
                     </li>
+                    <li v-for="(star, index) in emptyStars" :key="index">
+                        <div id="app">
+                            <!-- Add the style and icon you want using the String format -->
+                            <font-awesome-icon icon="fa-solid fa-star" class="empty-star"/>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </li>
@@ -56,5 +66,8 @@ created(){
 @use '../styles/partials/flags' as *;
 .lang-icon {
             background-image: url(../../node_modules/@textabledev/langs-flags-list/lang-flags.png);
+}
+.empty-star{
+    color: grey;
 }
 </style>
