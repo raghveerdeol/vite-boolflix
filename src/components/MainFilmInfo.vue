@@ -6,6 +6,7 @@ export default {
 data() {
 return {
         store,
+        stars: [],
 }
 },
 props: {
@@ -13,7 +14,19 @@ props: {
         type: Object,
         required: true,
     }
-}
+},
+methods: {
+    getStars(){
+        const starNumber = (Math.round(parseInt(this.movieInfo.vote_average / 2, 10)));
+        for (let index = 0; index < starNumber; index++) {
+            this.stars.push(index)
+        }
+        console.log(this.stars)
+    }
+},
+created(){
+    this.getStars();
+},
 }
 </script>
 
@@ -31,6 +44,11 @@ props: {
             </div>
             <div>
                 Voto: {{ movieInfo.vote_average }}
+                <ul>
+                    <li v-for="(star, index) in stars" :key="index">
+                        star
+                    </li>
+                </ul>
             </div>
         </li>
 </template>
