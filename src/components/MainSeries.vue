@@ -1,9 +1,11 @@
 <script>
+import axios from 'axios';
 export default {
 data() {
 return {
     stars: [],
     emptyStars: [],
+    tvCastNames: [],
 }
 },
 props: {
@@ -21,11 +23,29 @@ methods: {
         for (let index = starNumber; index < 5; index++) {
             this.emptyStars.push(index)
         };
-        console.log(this.stars)
-    }
+    },
+    getCast(){
+        axios.get(`https://api.themoviedb.org/3/tv/${this.tvInfo.id}/credits`,{
+            params: {
+                api_key: '83724394da4505a6dc047ce5485571d4',
+            }
+        })
+        .then( (response) => {
+            let castList = response.data.cast;
+            for (let index = 0; index < 5; index++) {
+                this.tvCastNames.push(castList[index].name);
+            };
+        })
+        .catch(function (error) {
+        })
+        .finally(function () {
+            // always executed
+        });  
+    },
 },
 created(){
     this.getStars();
+    this.getCast();
 },
 }
 </script>
@@ -60,6 +80,14 @@ created(){
                             </li>
                         </ul>
                     </div>
+                    <ul class="cast-list">
+                            <li>
+                                Cast:
+                            </li>
+                            <li v-for="(name,index) in tvCastNames" :key="index">
+                                {{ name }}
+                            </li>
+                        </ul>
                 </div>
             </div>
         </div>
