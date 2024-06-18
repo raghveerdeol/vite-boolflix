@@ -5,6 +5,7 @@ data() {
 return {
     stars: [],
     emptyStars: [],
+    genres: [],
     tvCastNames: [],
 }
 },
@@ -42,9 +43,29 @@ methods: {
             // always executed
         });  
     },
+    getGenres(){
+        axios.get(`https://api.themoviedb.org/3/tv/${this.tvInfo.id}`,{
+            params: {
+                api_key: '83724394da4505a6dc047ce5485571d4',
+            }
+        })
+        .then( (response) => {
+            console.log(response.data.genres)
+            let genresList = response.data.genres;
+            for (let index = 0; index < genresList.length; index++) {
+                this.genres.push(genresList[index].name);
+            };
+        })
+        .catch(function (error) {
+        })
+        .finally(function () {
+            // always executed
+        });
+    },
 },
 created(){
     this.getStars();
+    this.getGenres();
     this.getCast();
 },
 }
@@ -86,6 +107,11 @@ created(){
                             </li>
                             <li v-for="(name,index) in tvCastNames" :key="index">
                                 {{ name }}
+                            </li>
+                        </ul>
+                        <ul>
+                            <li v-for="(genre,index) in genres" :key="index">
+                                Genere {{index + 1}}: <span>{{ genre }}</span> 
                             </li>
                         </ul>
                 </div>
