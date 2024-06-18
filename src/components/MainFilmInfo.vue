@@ -8,6 +8,7 @@ return {
         store,
         stars: [],
         emptyStars: [],
+        cast: [],
 }
 },
 props: {
@@ -25,16 +26,38 @@ methods: {
         for (let index = starNumber; index < 5; index++) {
             this.emptyStars.push(index)
         }
-        console.log(this.stars)
-    }
+    },
+    getCast(){
+        axios.get(`https://api.themoviedb.org/3/movie/${this.movieInfo.id}/credits`,{
+            params: {
+                api_key: '83724394da4505a6dc047ce5485571d4',
+            }
+        })
+        .then(function (response) {
+            let castList = response.data.cast;
+            let list = [];
+            for (let index = 0; index < 5; index++) {
+                list.push(castList[index].name);
+            };
+            console.log(list);
+            this.cast = list;
+        })
+        .catch(function (error) {
+        })
+        .finally(function () {
+            // always executed
+        });  
+    },
 },
 created(){
     this.getStars();
+    this.getCast()
 },
 }
 </script>
 
 <template>
+    <p>{{ cast }}</p>
         <li class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
@@ -56,7 +79,7 @@ created(){
                         </p>
                         <div>
                             <ul class="stars">
-                                <li v-for="(star, index) in stars" :key="index" id="app" class="star-color">
+                                <li v-for="(star, index) in stars" :key="index" class="star-color">
                                         <font-awesome-icon icon="fa-solid fa-star" />
                                 </li>
                                 <li v-for="(star, index) in emptyStars" :key="index" >

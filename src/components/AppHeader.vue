@@ -52,7 +52,6 @@ methods: {
         });  
     },
     movieName(title){
-        console.log(title)
         this.getFilmInfo(this.apiFilmUrl, title)
         this.getTvsSeries(this.apitvUrl, title)
     }

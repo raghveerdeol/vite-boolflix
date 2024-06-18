@@ -52,10 +52,10 @@ created(){
                     </p>
                     <div>
                         <ul class="stars">
-                            <li v-for="(star, index) in stars" :key="index" id="app"  class="star-color">
+                            <li v-for="(star, index) in stars" :key="index" class="star-color">
                                     <font-awesome-icon icon="fa-solid fa-star" />
                             </li>
-                            <li v-for="(star, index) in emptyStars" :key="index" id="app">
+                            <li v-for="(star, index) in emptyStars" :key="index">
                                     <font-awesome-icon icon="fa-solid fa-star" class="empty-star"/>
                             </li>
                         </ul>
