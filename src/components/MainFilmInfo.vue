@@ -8,7 +8,7 @@ return {
         store,
         stars: [],
         emptyStars: [],
-        cast: [],
+        castNames: [],
 }
 },
 props: {
@@ -33,14 +33,11 @@ methods: {
                 api_key: '83724394da4505a6dc047ce5485571d4',
             }
         })
-        .then(function (response) {
+        .then( (response) => {
             let castList = response.data.cast;
-            let list = [];
             for (let index = 0; index < 5; index++) {
-                list.push(castList[index].name);
+                this.castNames.push(castList[index].name);
             };
-            console.log(list);
-            this.cast = list;
         })
         .catch(function (error) {
         })
@@ -57,7 +54,6 @@ created(){
 </script>
 
 <template>
-    <p>{{ cast }}</p>
         <li class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
@@ -87,6 +83,14 @@ created(){
                                 </li>
                             </ul>
                         </div>
+                        <ul class="cast-list">
+                            <li>
+                                Cast:
+                            </li>
+                            <li v-for="(name,index) in castNames" :key="index">
+                                {{ name }}
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
