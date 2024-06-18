@@ -104,19 +104,21 @@ created(){
                                 </li>
                             </ul>
                         </div>
-                        <ul class="cast-list">
-                            <li>
-                                Cast:
-                            </li>
-                            <li v-for="(name,index) in castNames" :key="index">
-                                {{ name }}
-                            </li>
-                        </ul>
-                        <ul>
-                            <li v-for="(genre,index) in genres" :key="index">
-                                Genere {{index + 1}}: <span>{{ genre }}</span> 
-                            </li>
-                        </ul>
+                        <div class="cast-generi">
+                            <ul class="cast-list">
+                                <li>
+                                    Cast:
+                                </li>
+                                <li v-for="(name,index) in castNames" :key="index">
+                                    {{ name }}
+                                </li>
+                            </ul>
+                            <ul>
+                                <li v-for="(genre,index) in genres" :key="index">
+                                    Genere {{index + 1}}: <span>{{ genre }}</span> 
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

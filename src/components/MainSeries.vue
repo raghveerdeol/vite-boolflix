@@ -101,7 +101,8 @@ created(){
                             </li>
                         </ul>
                     </div>
-                    <ul class="cast-list">
+                    <div class="cast-generi">
+                        <ul class="cast-list">
                             <li>
                                 Cast:
                             </li>
@@ -114,6 +115,7 @@ created(){
                                 Genere {{index + 1}}: <span>{{ genre }}</span> 
                             </li>
                         </ul>
+                    </div>
                 </div>
             </div>
         </div>

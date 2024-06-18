@@ -18,8 +18,8 @@ img{
 }
 .flip-card {
     background-color: transparent;
-    width: calc((100% / 5) - .4rem);
-    height: 342px;
+    width: calc((100% / 4) - .4rem);
+    height: 430px;
     border: 1px solid #f1f1f1;
     perspective: 1000px;
     overflow: hidden;
@@ -65,4 +65,9 @@ img{
 .content{
     position: absolute;
     font-weight: 800;
+    padding: 18px;
+}
+.cast-generi{
+    display: flex;
+    justify-content: space-around;
 }
